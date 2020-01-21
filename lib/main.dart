@@ -27,49 +27,62 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  int _counter = 0;
+  //int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
+     // _counter++;
     });
   }
   //samw comments
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-
-        title: Text(widget.title),
-      ),
-      body: Center(
+  Widget build(BuildContext _) {
+    return Material(
+     
+      child:   Stack(
+              children: <Widget>[
+    ClipPath(
   
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.yellow,
-            )
-          ],
-        ),
+                 
+  
+                              child: Container(
+  
+                    width: 300,
+  
+                    height: 300,
+  
+                    color: Colors.yellow,
+  
+                  ),
+  
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.red,
+                ),
+                Positioned(
+                  
+              width: 80,height: 80,
+                  bottom:  2,right: 2,
+                  child: ClipOval(
+                                      child: Container(
+                      width: 10,
+                      height: 10,
+                      color: Colors.deepOrange,),
+                  ),
+                ),
+              
+],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add_alarm),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+         
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+  
+ 
 
   
 }
+
