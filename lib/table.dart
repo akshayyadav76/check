@@ -12,27 +12,30 @@ class _TableScreenState extends State<TableScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(title: Text("table view"),),
-      body: DataTable(
-        
-        columns: [
-          DataColumn(label: Text("roll number")),
-          DataColumn(label: Text("Name")),
+      body: ColorFiltered(
+        colorFilter: ColorFilter.mode(Colors.green, BlendMode.darken),
+              child: DataTable(
+          
+          columns: [
+            DataColumn(label: Text("roll number")),
+            DataColumn(label: Text("Name")),
 
-          ],
-          rows: [
-            DataRow(cells: [
-              DataCell(
-                Text("2235664")),
+            ],
+            rows: [
+              DataRow(cells: [
                 DataCell(
-                Text("2235664")),
-              ]
+                  Text("2235664")),
+                  DataCell(
+                  Text("2235664")),
+                ]
 
-              )
-          ],
-          
-             
-              
-          
+                )
+            ],
+            
+               
+                
+            
+        ),
       )
     );
   }
