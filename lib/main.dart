@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import './table.dart';
+
 void main() => runApp(MyApp());
 ////
 ///////
@@ -43,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //   });
   // }
   //samw comments
-  var colorChagen = Colors.blue;
+  var colorChagen = Colors.green;
 
  Future futureResult()async{
     var respontGet = await http.get( 'https://jsonplaceholder.typicode.com/posts');
@@ -79,16 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                       },
                       );
-                  
-      ////            /
-      //            //
-      //            /
-      //            /
-      //            /
-                  ///
-                  //
-                  ////
-                  
+   
                   
                 } else {
                   return Center(child: CircularProgressIndicator());
@@ -96,19 +89,33 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ),
-          RaisedButton(
-            child: Text("animate"),
-            onPressed: () {
-              setState(() {
-                colorChagen == Colors.blue
-                    ? colorChagen = Colors.yellow
-                    : colorChagen = Colors.blue;
-                // widght == 400.0 ? widght = 100:widght = 400.0;
-              });
-            },
-          ),
+          // RaisedButton(
+          //   child: Text("animate"),
+          //   onPressed: () {
+          //     setState(() {
+          //       colorChagen == Colors.blue
+          //           ? colorChagen = Colors.yellow
+          //           : colorChagen = Colors.blue;
+          //       // widght == 400.0 ? widght = 100:widght = 400.0;
+          //     });
+          //   },
+          // ),
+          
         ],
+      ),floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.near_me),onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context){
+            return TableScreen();
+          }));
+        },
+        backgroundColor: Colors.cyan,
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.access_time),title: Text("alarm")),
+            BottomNavigationBarItem(icon: Icon(Icons.add),title: Text("add"))],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
