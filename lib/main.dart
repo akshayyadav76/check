@@ -29,55 +29,48 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-     // _counter++;
-    });
-  }
+  // void _incrementCounter() {
+  //   setState(() {
+  //    // _counter++;
+  //   });
+  // }
   //samw comments
-
+var colorChagen = Colors.blue;
+ var widght  = 400.0;
   @override
   Widget build(BuildContext _) {
-    return Material(
-     
-      child:   Stack(
-              children: <Widget>[
-    ClipPath(
-  
-                 
-  
-                              child: Container(
-  
-                    width: 300,
-  
-                    height: 300,
-  
-                    color: Colors.yellow,
-  
-                  ),
-  
-                ),
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.red,
-                ),
-                Positioned(
-                  
-              width: 80,height: 80,
-                  bottom:  2,right: 2,
-                  child: ClipOval(
-                                      child: Container(
-                      width: 10,
-                      height: 10,
-                      color: Colors.deepOrange,),
-                  ),
-                ),
-              
-],
+    return Scaffold(
+      appBar: AppBar(title: Text("flutter wideget of week")),
+  body: Column(
+ 
+    children: <Widget>[
+       AnimatedContainer(
+         duration: Duration(seconds: 1),
+          height: 100,
+          width: widght,
+         color: Colors.red, 
+        
       ),
-         
-      // This trailing comma makes auto-formatting nicer for build methods.
+      AnimatedContainer(
+        
+        duration: Duration(seconds: 1),
+        height: 200,
+        width: double.infinity,
+       color: colorChagen, 
+      ),
+      RaisedButton(
+        child: Text("animate"),
+        onPressed: (){
+          setState(() {
+            colorChagen == Colors.blue ? colorChagen = Colors.yellow:colorChagen =Colors.blue;
+            widght == 400.0 ? widght = 100:widght = 400.0;
+
+          });
+        },
+      ),
+      
+    ],
+  ),
     );
   }
   
